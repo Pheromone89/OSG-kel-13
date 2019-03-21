@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 
-
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -37,7 +36,5 @@ dependencies {
     // Material 2.0
     implementation 'com.google.android.material:material:1.0.0'
 
-    //ButterKnife
-    implementation 'com.jakewharton:butterknife:9.0.0-SNAPSHOT'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-SNAPSHOT'
+
 }

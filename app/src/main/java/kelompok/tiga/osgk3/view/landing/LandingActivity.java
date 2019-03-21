@@ -8,8 +8,6 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import androidx.appcompat.app.AppCompatActivity;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import kelompok.tiga.osgk3.MainActivity;
 import kelompok.tiga.osgk3.R;
 import kelompok.tiga.osgk3.model.Login;
@@ -17,14 +15,9 @@ import kelompok.tiga.osgk3.viewmodel.LandingViewModel;
 
 public class LandingActivity extends AppCompatActivity implements NavigatorLanding {
 
-    @BindView(R.id.landingEditTextUsername)
-    TextInputEditText edtUsername;
-    @BindView(R.id.landingEditTextPassword)
-    TextInputEditText edtPassword;
-    @BindView(R.id.landingButtonLogin)
-    MaterialButton btnLogin;
-    @BindView(R.id.landingButtonRegistrasi)
-    MaterialButton btnRegistrasi;
+
+    private TextInputEditText edtUsername, edtPassword;
+    private MaterialButton btnLogin, btnRegistrasi;
 
     private LandingViewModel viewModel;
     private Login login;
@@ -33,7 +26,7 @@ public class LandingActivity extends AppCompatActivity implements NavigatorLandi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
-        ButterKnife.bind(this);
+        setViews();
 
         login = new Login();
         viewModel = new LandingViewModel(this, login);
@@ -49,6 +42,15 @@ public class LandingActivity extends AppCompatActivity implements NavigatorLandi
             viewModel.updateModel(edtUsername.getText().toString(), edtPassword.getText().toString());
             viewModel.validRegistrasi();
         }));
+    }
+
+    // sementara nanti di ganti jadi databinding
+    void setViews(){
+        edtUsername = findViewById(R.id.landingEditTextUsername);
+        edtPassword = findViewById(R.id.landingEditTextPassword);
+        btnLogin = findViewById(R.id.landingButtonLogin);
+        btnRegistrasi = findViewById(R.id.landingButtonRegistrasi);
+
     }
 
     @Override
