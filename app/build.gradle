@@ -14,6 +14,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", 'BASE_URL', "https://reqres.in/api/"
         }
     }
     dataBinding {
@@ -35,6 +36,4 @@ dependencies {
 
     // Material 2.0
     implementation 'com.google.android.material:material:1.0.0'
-
-
 }
