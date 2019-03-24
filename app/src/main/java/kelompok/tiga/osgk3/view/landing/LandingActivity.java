@@ -7,6 +7,8 @@ import android.widget.Toast;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.Objects;
+
 import androidx.appcompat.app.AppCompatActivity;
 import kelompok.tiga.osgk3.MainActivity;
 import kelompok.tiga.osgk3.R;
@@ -20,7 +22,6 @@ public class LandingActivity extends AppCompatActivity implements NavigatorLandi
     private MaterialButton btnLogin, btnRegistrasi;
 
     private LandingViewModel viewModel;
-    private Login login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +29,18 @@ public class LandingActivity extends AppCompatActivity implements NavigatorLandi
         setContentView(R.layout.activity_landing);
         setViews();
 
-        login = new Login();
+        Login login = new Login();
         viewModel = new LandingViewModel(this, login);
         viewModel.setNavigator(this);
 
 
         btnLogin.setOnClickListener((v)->{
-            viewModel.updateModel(edtUsername.getText().toString(), edtPassword.getText().toString());
+            viewModel.updateModel(Objects.requireNonNull(edtUsername.getText()).toString(), Objects.requireNonNull(edtPassword.getText()).toString());
             viewModel.validLogin();
         });
 
         btnRegistrasi.setOnClickListener((v -> {
-            viewModel.updateModel(edtUsername.getText().toString(), edtPassword.getText().toString());
+            viewModel.updateModel(Objects.requireNonNull(edtUsername.getText()).toString(), Objects.requireNonNull(edtPassword.getText()).toString());
             viewModel.validRegistrasi();
         }));
     }
