@@ -1,88 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    tools:ignore="ContentDescription"
-    android:paddingTop="?actionBarSize"
-    tools:context=".view.landing.LandingActivity">
-    <LinearLayout
-        android:padding="24dp"
-        android:orientation="vertical"
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="?actionBarSize"
+        tools:context=".view.landing.LandingActivity"
+        tools:ignore="ContentDescription">
 
-        <ImageView
-            android:padding="8dp"
-            android:src="@drawable/img_login"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:orientation="vertical"
+            android:padding="24dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            app:boxStrokeColor="@color/colorBox"
-            android:textColorHint="@color/colorBox"
-            android:layout_marginTop="24dp"
-            android:paddingBottom="8dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:src="@drawable/img_login" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/username"
-                android:id="@+id/landingEditTextUsername"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="24dp"
+                android:paddingBottom="8dp"
+                android:textColorHint="@color/colorBox"
+                app:boxStrokeColor="@color/colorBox">
 
-        <com.google.android.material.textfield.TextInputLayout
-            app:boxStrokeColor="@color/colorBox"
-            android:textColorHint="@color/colorBox"
-            android:paddingBottom="8dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/landingEditTextUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/username" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="@string/password"
-                android:id="@+id/landingEditTextPassword"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:paddingBottom="8dp"
+                android:textColorHint="@color/colorBox"
+                app:boxStrokeColor="@color/colorBox">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/landingButtonLogin"
-            android:textColor="@android:color/white"
-            app:backgroundTint="#A875FF"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:text="@string/login" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/landingEditTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:gravity="center"
-            android:text="Or"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/landingButtonLogin"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="@string/login"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:backgroundTint="#A875FF" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/landingButtonRegistrasi"
-            android:textColor="@android:color/white"
-            app:backgroundTint="#A875FF"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:textAllCaps="false"
-            android:textSize="16sp"
-            android:text="Register" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Or" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/landingButtonRegistrasi"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:backgroundTint="#A875FF" />
 
 
-
+        </LinearLayout>
     </LinearLayout>
 
-
-</LinearLayout>
+</layout>

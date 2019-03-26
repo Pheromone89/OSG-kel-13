@@ -1,6 +1,6 @@
 package kelompok.tiga.osgk3.view.landing;
 
-import java.util.List;
+import kelompok.tiga.osgk3.model.Register;
 
 /**
  * Create by
@@ -9,7 +9,10 @@ import java.util.List;
  */
 public interface NavigatorLanding {
 
-    void onSuccess();
+    void onSuccessRegister(Register register);
+
+    void onSuccessLogin();
+
     void onFailed(String message);
 
 }

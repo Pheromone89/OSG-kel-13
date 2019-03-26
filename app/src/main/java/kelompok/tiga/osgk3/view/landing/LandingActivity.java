@@ -1,63 +1,57 @@
 package kelompok.tiga.osgk3.view.landing;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
-
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
 import androidx.appcompat.app.AppCompatActivity;
-import kelompok.tiga.osgk3.MainActivity;
+import androidx.databinding.DataBindingUtil;
+import kelompok.tiga.osgk3.Injection;
 import kelompok.tiga.osgk3.R;
+import kelompok.tiga.osgk3.databinding.ActivityLandingBinding;
 import kelompok.tiga.osgk3.model.Login;
+import kelompok.tiga.osgk3.model.Register;
 import kelompok.tiga.osgk3.viewmodel.LandingViewModel;
 
 public class LandingActivity extends AppCompatActivity implements NavigatorLanding {
 
-
-    private TextInputEditText edtUsername, edtPassword;
-    private MaterialButton btnLogin, btnRegistrasi;
-
+    private ActivityLandingBinding binding;
     private LandingViewModel viewModel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_landing);
-        setViews();
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_landing);
 
         Login login = new Login();
-        viewModel = new LandingViewModel(this, login);
+        viewModel = new LandingViewModel(this, login, Injection.provideRegisterRepository(login));
         viewModel.setNavigator(this);
 
 
-        btnLogin.setOnClickListener((v)->{
-            viewModel.updateModel(Objects.requireNonNull(edtUsername.getText()).toString(), Objects.requireNonNull(edtPassword.getText()).toString());
+        binding.landingButtonLogin.setOnClickListener((v) -> {
+            viewModel.updateModel(Objects.requireNonNull(binding.landingEditTextUsername.getText()).toString()
+                    , Objects.requireNonNull(binding.landingEditTextPassword.getText()).toString());
             viewModel.validLogin();
         });
 
-        btnRegistrasi.setOnClickListener((v -> {
-            viewModel.updateModel(Objects.requireNonNull(edtUsername.getText()).toString(), Objects.requireNonNull(edtPassword.getText()).toString());
+        binding.landingButtonRegistrasi.setOnClickListener((v -> {
+            viewModel.updateModel(Objects.requireNonNull(binding.landingEditTextUsername.getText()).toString()
+                    , Objects.requireNonNull(binding.landingEditTextPassword.getText()).toString());
             viewModel.validRegistrasi();
         }));
     }
 
-    // sementara nanti di ganti jadi databinding
-    void setViews(){
-        edtUsername = findViewById(R.id.landingEditTextUsername);
-        edtPassword = findViewById(R.id.landingEditTextPassword);
-        btnLogin = findViewById(R.id.landingButtonLogin);
-        btnRegistrasi = findViewById(R.id.landingButtonRegistrasi);
-
+    @Override
+    public void onSuccessRegister(Register register) {
+        showToast(getString(R.string.login_successfully) + " - Token : " + register.getToken());
+//        startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
-    public void onSuccess() {
-        showToast("BERHASIL LOGIN");
-        startActivity(new Intent(this, MainActivity.class));
+    public void onSuccessLogin() {
+
     }
 
     @Override
@@ -66,7 +60,7 @@ public class LandingActivity extends AppCompatActivity implements NavigatorLandi
     }
 
 
-    private void showToast(String message){
+    private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
