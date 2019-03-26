@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:text="Wellcome"
+        android:text="@string/splash_message"
         android:textSize="24sp"
         android:fontFamily="serif"
         android:textColor="@android:color/white"
