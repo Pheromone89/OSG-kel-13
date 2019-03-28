@@ -4,9 +4,11 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import kelompok.tiga.osgk3.data.DataSource;
+import kelompok.tiga.osgk3.data.LoginRepository;
 import kelompok.tiga.osgk3.data.RegisterRepository;
 import kelompok.tiga.osgk3.model.Login;
-import kelompok.tiga.osgk3.model.Register;
+import kelompok.tiga.osgk3.model.ResponseLogin;
+import kelompok.tiga.osgk3.model.ResponseRegister;
 import kelompok.tiga.osgk3.view.landing.NavigatorLanding;
 
 /**
@@ -21,11 +23,16 @@ public class LandingViewModel {
     private Login login;
     private NavigatorLanding navigatorLanding;
     private RegisterRepository registerRepository;
+    private LoginRepository loginRepository;
 
-    public LandingViewModel(Context context, Login login, RegisterRepository registerRepository) {
+    public LandingViewModel(Context context,
+                            Login login,
+                            RegisterRepository registerRepository,
+                            LoginRepository loginRepository) {
         this.context = context;
         this.login = login;
         this.registerRepository = registerRepository;
+        this.loginRepository = loginRepository;
     }
 
     public void updateModel(String email, String password) {
@@ -35,8 +42,9 @@ public class LandingViewModel {
 
     public void validLogin() {
 
-        if (!TextUtils.isEmpty(login.getEmail()) && !TextUtils.isEmpty(login.getPassword())) {
-            postLogin(login);
+        //skip password check to get error from API
+        if (!TextUtils.isEmpty(login.getEmail())) {
+            postLogin();
         } else {
             navigatorLanding.onFailed(FAILED_VALIDASI);
         }
@@ -45,7 +53,8 @@ public class LandingViewModel {
 
     public void validRegistrasi() {
 
-        if (!TextUtils.isEmpty(login.getEmail()) && !TextUtils.isEmpty(login.getPassword())) {
+        //skip password check to get error from API
+        if (!TextUtils.isEmpty(login.getEmail())) {
             postRegister();
         } else {
             navigatorLanding.onFailed(FAILED_VALIDASI);
@@ -58,15 +67,25 @@ public class LandingViewModel {
         navigatorLanding = navigator;
     }
 
-    private void postLogin(Login login) {
-        navigatorLanding.onSuccessLogin();
+    private void postLogin() {
+        loginRepository.getResponse(new DataSource.GetResponseCallback() {
+            @Override
+            public void onResponseLoaded(Object data) {
+                navigatorLanding.onSuccessLogin((ResponseLogin) data);
+            }
+
+            @Override
+            public void onDataNotAvailable(String errorMessage) {
+                navigatorLanding.onFailed(errorMessage);
+            }
+        });
     }
 
     private void postRegister() {
         registerRepository.getResponse(new DataSource.GetResponseCallback() {
             @Override
             public void onResponseLoaded(Object data) {
-                navigatorLanding.onSuccessRegister((Register) data);
+                navigatorLanding.onSuccessRegister((ResponseRegister) data);
             }
 
             @Override

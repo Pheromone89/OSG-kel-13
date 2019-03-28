@@ -2,7 +2,7 @@ package kelompok.tiga.osgk3.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Register {
+public class ResponseRegister {
 
     @SerializedName("token")
     private String token;

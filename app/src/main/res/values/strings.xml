@@ -4,5 +4,6 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="login_successfully">Berhasil Login</string>
+    <string name="register_successfully">Berhasil Mendaftar</string>
     <string name="splash_message">Welcome</string>
 </resources>

@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import kelompok.tiga.osgk3.data.DataSource;
 import kelompok.tiga.osgk3.model.ResponseError;
-import kelompok.tiga.osgk3.model.ResponseRegister;
+import kelompok.tiga.osgk3.model.ResponseLogin;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,13 +21,13 @@ import retrofit2.Response;
  * *********************************************
  * © 2019 | All Right Reserved
  */
-public class RegisterRemoteDataSource implements DataSource {
+public class LoginRemoteDataSource implements DataSource {
     private ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
     private String username;
     private String password;
 
-    public RegisterRemoteDataSource() {
+    public LoginRemoteDataSource() {
     }
 
     //create constructor to passing username, password
@@ -38,16 +38,16 @@ public class RegisterRemoteDataSource implements DataSource {
 
     @Override
     public void getResponse(GetResponseCallback callback) {
-        Call<ResponseRegister> call = apiInterface.postRegister(username, password);
-        call.enqueue(new Callback<ResponseRegister>() {
+        Call<ResponseLogin> call = apiInterface.postLogin(username, password);
+        call.enqueue(new Callback<ResponseLogin>() {
             @Override
-            public void onResponse(Call<ResponseRegister> call, Response<ResponseRegister> response) {
+            public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
                 //check response
                 if (response.code() == 400) {
                     Gson gson = new GsonBuilder().create();
                     try {
                         ResponseError mError = gson.fromJson(response.errorBody().string(), ResponseError.class);
-                        callback.onDataNotAvailable("Register - " + mError.getError());
+                        callback.onDataNotAvailable("Login - " + mError.getError());
 
                     } catch (IOException e) {
                         // handle failure to read error
@@ -59,7 +59,7 @@ public class RegisterRemoteDataSource implements DataSource {
             }
 
             @Override
-            public void onFailure(Call<ResponseRegister> call, Throwable t) {
+            public void onFailure(Call<ResponseLogin> call, Throwable t) {
 
                 callback.onDataNotAvailable(t.toString());
 

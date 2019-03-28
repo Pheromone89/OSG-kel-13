@@ -1,6 +1,7 @@
 package kelompok.tiga.osgk3.view.landing;
 
-import kelompok.tiga.osgk3.model.Register;
+import kelompok.tiga.osgk3.model.ResponseLogin;
+import kelompok.tiga.osgk3.model.ResponseRegister;
 
 /**
  * Create by
@@ -9,9 +10,9 @@ import kelompok.tiga.osgk3.model.Register;
  */
 public interface NavigatorLanding {
 
-    void onSuccessRegister(Register register);
+    void onSuccessRegister(ResponseRegister responseRegister);
 
-    void onSuccessLogin();
+    void onSuccessLogin(ResponseLogin responseLogin);
 
     void onFailed(String message);
 

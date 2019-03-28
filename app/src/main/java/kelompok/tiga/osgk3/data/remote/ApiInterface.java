@@ -1,6 +1,7 @@
 package kelompok.tiga.osgk3.data.remote;
 
-import kelompok.tiga.osgk3.model.Register;
+import kelompok.tiga.osgk3.model.ResponseLogin;
+import kelompok.tiga.osgk3.model.ResponseRegister;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -18,5 +19,9 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("register")
-    Call<Register> postRegister(@Field("email") String email, @Field("password") String password);
+    Call<ResponseRegister> postRegister(@Field("email") String email, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("login")
+    Call<ResponseLogin> postLogin(@Field("email") String email, @Field("password") String password);
 }
