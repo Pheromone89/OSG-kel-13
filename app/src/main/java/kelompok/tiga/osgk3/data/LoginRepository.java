@@ -33,8 +33,8 @@ public class LoginRepository implements DataSource {
             @Override
             public void onDataNotAvailable(String errorMessage) {
                 callback.onDataNotAvailable(errorMessage);
-
             }
         });
     }
+
 }

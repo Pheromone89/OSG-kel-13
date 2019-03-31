@@ -9,13 +9,13 @@ import java.util.Objects;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import kelompok.tiga.osgk3.Injection;
-import kelompok.tiga.osgk3.MainActivity;
 import kelompok.tiga.osgk3.R;
 import kelompok.tiga.osgk3.databinding.ActivityLandingBinding;
 import kelompok.tiga.osgk3.model.Login;
 import kelompok.tiga.osgk3.model.ResponseLogin;
 import kelompok.tiga.osgk3.model.ResponseRegister;
 import kelompok.tiga.osgk3.utils.PrefManager;
+import kelompok.tiga.osgk3.view.main.MainActivity;
 import kelompok.tiga.osgk3.viewmodel.LandingViewModel;
 
 public class LandingActivity extends AppCompatActivity implements NavigatorLanding {
@@ -56,6 +56,10 @@ public class LandingActivity extends AppCompatActivity implements NavigatorLandi
     @Override
     public void onSuccessRegister(ResponseRegister responseRegister) {
         showToast(getString(R.string.register_successfully) + " - Token : " + responseRegister.getToken());
+        prefManager.saveString(prefManager.PREF_USER, login.email); //save user in prefManager
+        prefManager.saveBoolean(prefManager.PREF_IS_LOGIN, true);
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 
     @Override

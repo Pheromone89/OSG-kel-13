@@ -1,7 +1,11 @@
 package kelompok.tiga.osgk3;
 
+import android.content.Context;
+
+import kelompok.tiga.osgk3.data.ListUserRepository;
 import kelompok.tiga.osgk3.data.LoginRepository;
 import kelompok.tiga.osgk3.data.RegisterRepository;
+import kelompok.tiga.osgk3.data.remote.ListUserRemoteDataSource;
 import kelompok.tiga.osgk3.data.remote.LoginRemoteDataSource;
 import kelompok.tiga.osgk3.data.remote.RegisterRemoteDataSource;
 import kelompok.tiga.osgk3.model.Login;
@@ -21,5 +25,9 @@ public class Injection {
 
     public static LoginRepository provideLoginRepository(Login login) {
         return new LoginRepository(new LoginRemoteDataSource(), login);
+    }
+
+    public static ListUserRepository provideListUserRepository(Context context){
+        return new ListUserRepository(new ListUserRemoteDataSource());
     }
 }

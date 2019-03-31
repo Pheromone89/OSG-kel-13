@@ -1,5 +1,7 @@
 package kelompok.tiga.osgk3.data;
 
+import kelompok.tiga.osgk3.model.user.UserResponse;
+
 /**
  * *********************************************
  * Created by ukie on 3/26/19 with ♥
@@ -19,4 +21,5 @@ public interface DataSource {
 
         void onDataNotAvailable(String errorMessage);
     }
+
 }

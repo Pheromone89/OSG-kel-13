@@ -6,8 +6,8 @@ import android.os.Handler;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
-import kelompok.tiga.osgk3.MainActivity;
 import kelompok.tiga.osgk3.R;
+import kelompok.tiga.osgk3.view.main.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -18,7 +18,7 @@ import kelompok.tiga.osgk3.view.landing.NavigatorLanding;
  */
 public class LandingViewModel {
 
-    public final static String FAILED_VALIDASI = "Harap isi email dan password";
+    private final static String FAILED_VALIDASI = "Harap isi email dan password";
     private Context context;
     private Login login;
     private NavigatorLanding navigatorLanding;

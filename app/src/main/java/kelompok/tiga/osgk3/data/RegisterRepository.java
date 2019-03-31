@@ -1,7 +1,5 @@
 package kelompok.tiga.osgk3.data;
 
-import android.util.Log;
-
 import kelompok.tiga.osgk3.data.remote.RegisterRemoteDataSource;
 import kelompok.tiga.osgk3.model.Login;
 

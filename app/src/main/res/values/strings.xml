@@ -6,4 +6,8 @@
     <string name="login_successfully">Berhasil Login</string>
     <string name="register_successfully">Berhasil Mendaftar</string>
     <string name="splash_message">Welcome</string>
+    <string name="home">Home</string>
+    <string name="input_number">Input Number</string>
+    <string name="show">Show</string>
+    <string name="hi_username">Hi, %1$d \nHow many user \nyou want to see ?</string>
 </resources>
