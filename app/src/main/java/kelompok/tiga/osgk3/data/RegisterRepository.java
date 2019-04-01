@@ -37,4 +37,9 @@ public class RegisterRepository implements DataSource {
             }
         });
     }
+
+    @Override
+    public void getUserResponse(GetUserCallback callback) {
+
+    }
 }

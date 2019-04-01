@@ -2,7 +2,6 @@ package kelompok.tiga.osgk3.viewmodel;
 
 import android.content.Context;
 import android.text.TextUtils;
-
 import kelompok.tiga.osgk3.data.DataSource;
 import kelompok.tiga.osgk3.data.LoginRepository;
 import kelompok.tiga.osgk3.data.RegisterRepository;
@@ -41,18 +40,15 @@ public class LandingViewModel {
     }
 
     public void validLogin() {
-
         //skip password check to get error from API
         if (!TextUtils.isEmpty(login.getEmail())) {
             postLogin();
         } else {
             navigatorLanding.onFailed(FAILED_VALIDASI);
         }
-
     }
 
     public void validRegistrasi() {
-
         //skip password check to get error from API
         if (!TextUtils.isEmpty(login.getEmail())) {
             postRegister();

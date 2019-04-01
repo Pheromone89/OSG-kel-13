@@ -37,4 +37,9 @@ public class LoginRepository implements DataSource {
         });
     }
 
+    @Override
+    public void getUserResponse(GetUserCallback callback) {
+
+    }
+
 }

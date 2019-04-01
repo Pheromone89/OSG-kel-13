@@ -1,8 +1,10 @@
-package kelompok.tiga.osgk3.view.list.adapter;
+package kelompok.tiga.osgk3.view.main.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import kelompok.tiga.osgk3.R;
 import kelompok.tiga.osgk3.databinding.ItemListUsersBinding;
 import kelompok.tiga.osgk3.model.user.Data;
+import kelompok.tiga.osgk3.view.detail.DetailActivity;
 
 /**
  * Create by
@@ -40,6 +43,7 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.setUs(listDataUser.get(position));
+        holder.bind(listDataUser.get(position));
     }
 
     @Override
@@ -47,12 +51,19 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.ViewHolder> {
         return listDataUser.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         private final ItemListUsersBinding binding;
-
-        public ViewHolder(ItemListUsersBinding itemListUsersBinding) {
+        ViewHolder(ItemListUsersBinding itemListUsersBinding) {
             super(itemListUsersBinding.getRoot());
             this.binding = itemListUsersBinding;
+        }
+
+        void bind(Data data){
+            binding.cardUsers.setOnClickListener(v -> {
+                Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
+                intent.putExtra("key", new Gson().toJson(data));
+                itemView.getContext().startActivity(intent);
+            });
         }
     }
 }

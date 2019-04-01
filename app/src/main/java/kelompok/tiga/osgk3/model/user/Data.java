@@ -2,10 +2,8 @@ package kelompok.tiga.osgk3.model.user;
 
 
 import android.widget.ImageView;
-
 import com.google.gson.annotations.SerializedName;
 import com.squareup.picasso.Picasso;
-
 import androidx.databinding.BindingAdapter;
 
 public class Data{

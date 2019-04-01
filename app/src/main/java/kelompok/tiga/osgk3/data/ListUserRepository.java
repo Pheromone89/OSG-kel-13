@@ -8,13 +8,14 @@ import kelompok.tiga.osgk3.model.user.UserResponse;
  * Name    : Lukmanul Hakim
  * on      : 30, March, 2019
  */
-public class ListUserRepository implements UserDataSource {
+public class ListUserRepository implements DataSource {
 
     private ListUserRemoteDataSource listUserRemoteDataSource;
 
     public ListUserRepository(ListUserRemoteDataSource listUserRemoteDataSource) {
         this.listUserRemoteDataSource = listUserRemoteDataSource;
     }
+
 
     @Override
     public void getUserResponse(GetUserCallback callback) {
@@ -29,4 +30,10 @@ public class ListUserRepository implements UserDataSource {
             }
         });
     }
+
+    @Override
+    public void getResponse(GetResponseCallback callback) {
+
+    }
+
 }

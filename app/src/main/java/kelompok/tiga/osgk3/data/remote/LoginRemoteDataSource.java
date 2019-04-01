@@ -68,4 +68,9 @@ public class LoginRemoteDataSource implements DataSource {
 
     }
 
+    @Override
+    public void getUserResponse(GetUserCallback callback) {
+
+    }
+
 }

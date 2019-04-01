@@ -1,7 +1,7 @@
 package kelompok.tiga.osgk3.data.remote;
 
 
-import kelompok.tiga.osgk3.data.UserDataSource;
+import kelompok.tiga.osgk3.data.DataSource;
 import kelompok.tiga.osgk3.model.user.UserResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -12,9 +12,8 @@ import retrofit2.Response;
  * Name    : Lukmanul Hakim
  * on      : 30, March, 2019
  */
-public class ListUserRemoteDataSource implements UserDataSource {
+public class ListUserRemoteDataSource implements DataSource {
     private ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
-
 
     @Override
     public void getUserResponse(GetUserCallback callback) {
@@ -30,5 +29,10 @@ public class ListUserRemoteDataSource implements UserDataSource {
                 callback.onDataNotAvailable(t.toString());
             }
         });
+    }
+
+    @Override
+    public void getResponse(GetResponseCallback callback) {
+
     }
 }

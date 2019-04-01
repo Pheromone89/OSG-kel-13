@@ -10,4 +10,6 @@
     <string name="input_number">Input Number</string>
     <string name="show">Show</string>
     <string name="hi_username">Hi, %1$d \nHow many user \nyou want to see ?</string>
+    <string name="online_study_group_3">Online Study Group 3</string>
+    <string name="detail_user">Detail User</string>
 </resources>

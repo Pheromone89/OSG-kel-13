@@ -7,6 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@drawable/grad"
         android:paddingTop="?actionBarSize"
         tools:context=".view.landing.LandingActivity"
         tools:ignore="ContentDescription">
@@ -29,8 +30,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:paddingBottom="8dp"
-                android:textColorHint="@color/colorBox"
-                app:boxStrokeColor="@color/colorBox">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="@android:color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/landingEditTextUsername"
@@ -44,8 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="8dp"
-                android:textColorHint="@color/colorBox"
-                app:boxStrokeColor="@color/colorBox">
+                android:textColorHint="@android:color/white"
+                app:boxStrokeColor="@android:color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/landingEditTextPassword"

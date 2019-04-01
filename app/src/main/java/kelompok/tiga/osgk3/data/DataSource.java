@@ -22,4 +22,12 @@ public interface DataSource {
         void onDataNotAvailable(String errorMessage);
     }
 
+    void getUserResponse(GetUserCallback callback);
+
+    interface GetUserCallback{
+        void onResponsesLoaded(UserResponse data);
+
+        void onDataNotAvailable(String errorMessage);
+    }
+
 }
