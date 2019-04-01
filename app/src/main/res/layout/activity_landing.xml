@@ -65,7 +65,7 @@
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                app:backgroundTint="#A875FF" />
+                app:backgroundTint="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -82,7 +82,7 @@
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"
-                app:backgroundTint="#A875FF" />
+                app:backgroundTint="@color/colorPrimary"/>
 
 
         </LinearLayout>
