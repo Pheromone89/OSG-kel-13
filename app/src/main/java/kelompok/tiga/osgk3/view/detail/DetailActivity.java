@@ -13,17 +13,20 @@ import com.google.gson.Gson;
 public class DetailActivity extends AppCompatActivity {
 
     ActivityDetailBinding binding;
-    private Data data;
-    private Gson gson;
+    private Data data = new Data();
+    private Gson gson = new Gson();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail);
 
         String extra =  getIntent().getStringExtra("key");
-//        data = gson.fromJson(extra, Data.class);
+        data = gson.fromJson(extra, Data.class);
 
         binding.imgTaskbarBack.setOnClickListener( v -> onBackPressed());
+
+        binding.setUs(data);
 
     }
 }

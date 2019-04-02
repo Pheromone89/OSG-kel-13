@@ -12,4 +12,5 @@
     <string name="hi_username">Hi, %1$d \nHow many user \nyou want to see ?</string>
     <string name="online_study_group_3">Online Study Group 3</string>
     <string name="detail_user">Detail User</string>
+    <string name="search">search</string>
 </resources>
